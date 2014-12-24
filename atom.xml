@@ -4,7 +4,7 @@
   <title><![CDATA[James Pulec's Blog]]></title>
   <link href="http://jpulec.github.io/atom.xml" rel="self"/>
   <link href="http://jpulec.github.io/"/>
-  <updated>2014-12-23T17:24:34-08:00</updated>
+  <updated>2014-12-23T17:27:20-08:00</updated>
   <id>http://jpulec.github.io/</id>
   <author>
     <name><![CDATA[James Pulec]]></name>
@@ -18,9 +18,7 @@
     <link href="http://jpulec.github.io/blog/2014/12/23/why-python-3-isnt-being-used-more/"/>
     <updated>2014-12-23T16:48:48-08:00</updated>
     <id>http://jpulec.github.io/blog/2014/12/23/why-python-3-isnt-being-used-more</id>
-    <content type="html"><![CDATA[<h1>Why Python 3 Isn&rsquo;t Being Used More</h1>
-
-<p>Disclaimer: None of this is to bash on python itself, but moreso the
+    <content type="html"><![CDATA[<p>Disclaimer: None of this is to bash on python itself, but moreso the
 ecosystem and problems that exist with it.</p>
 
 <p>Earlier this week, I decided to start working on a new personal project. As I&rsquo;ve
