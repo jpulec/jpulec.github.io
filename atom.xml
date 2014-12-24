@@ -4,7 +4,7 @@
   <title><![CDATA[James Pulec's Blog]]></title>
   <link href="http://jpulec.github.io/atom.xml" rel="self"/>
   <link href="http://jpulec.github.io/"/>
-  <updated>2014-12-23T16:38:47-08:00</updated>
+  <updated>2014-12-23T17:24:34-08:00</updated>
   <id>http://jpulec.github.io/</id>
   <author>
     <name><![CDATA[James Pulec]]></name>
@@ -12,5 +12,68 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Why Python 3 Isn't Being Used More]]></title>
+    <link href="http://jpulec.github.io/blog/2014/12/23/why-python-3-isnt-being-used-more/"/>
+    <updated>2014-12-23T16:48:48-08:00</updated>
+    <id>http://jpulec.github.io/blog/2014/12/23/why-python-3-isnt-being-used-more</id>
+    <content type="html"><![CDATA[<h1>Why Python 3 Isn&rsquo;t Being Used More</h1>
+
+<p>Disclaimer: None of this is to bash on python itself, but moreso the
+ecosystem and problems that exist with it.</p>
+
+<p>Earlier this week, I decided to start working on a new personal project. As I&rsquo;ve
+grown as a developer, the steps I take to begin something new have dramatically
+changed. In the beginning, I would fire up gedit and start editing files. I
+didn&rsquo;t know what version control was and I was happy just editing files and
+saving them. Of course once I discovered git, I couldn&rsquo;t possibly understand how
+I had managed before version control. Similarly, once I started using python&rsquo;s
+<code>virtualenv</code> I couldn&rsquo;t imagine going without it when I started to work on a
+project. And then I found my way to Vagrant and just virtualizing entire
+boxes.</p>
+
+<p>So, when I decided to start a new django project this week, I said to myself,
+&ldquo;Hey. I should write it all in python 3.&rdquo; Where I work right now, we&rsquo;re still
+stuck on python 2, mostly due to a few dependencies and that we just haven&rsquo;t had
+the time to change code to python 3. But this is a personal project, and if I
+never ran into another Unicode error, I would be soooo happy! If I want
+to play around with python 3, I can, dammit. And thus began the beginning of
+my troubles&hellip;.</p>
+
+<p>My first steps were to put together some configuration stuff to provision a
+vagrant box. Always wanting to be cutting-edge, I decided I would would start
+with ubuntu 14.04 (trusty tahr) and provision it with Ansible. I&rsquo;ve mostly only
+toyed with other orchestration tools, but been very happy with Ansible. It
+happens to be written in Python 2, but hey, that&rsquo;s not an issue. I&rsquo;m fine with
+using python for system stuff. That&rsquo;s what virtual environments are for.
+Besides forgetting to install <code>python-dev</code> and <code>python-psycopg2</code> for python 2
+(for Ansible) I wasn&rsquo;t having too many issues.</p>
+
+<p>Until I tried to have Ansible install my python 3 requirements.txt file for my
+django project. Since <code>pip</code> is still an alias to python 2&rsquo;s <code>pip</code> and not <code>pip3</code>
+in ubuntu 14.04, I needed to use a different command. No big deal, Ansible&rsquo;s
+<code>pip</code> module has it documented that you can pass a parameter, <code>executable</code> which
+is to specify a different executable (in this case <code>pip3</code>). And then, of course,
+I want my dependencies to be in a virtual environment, so again there is a
+parameter to specify the directory and the command for your virtual environment.
+Upon reading about python 3, I had learned that virtual environments had been
+added to the standard library and the module was called <code>pyvenv</code>. Cool! Except
+for one thing&hellip; It&rsquo;s broken in ubuntu 14.04. See <a href="http://askubuntu.com/questions/488529/pyvenv-3-4-error-returned-non-zero-exit-status-1">this</a>
+ask ubuntu question for a bit more context. And the solution, passing
+<code>--without-pip</code> to <code>pyvenv</code> isn&rsquo;t really an option for me since Ansible doesn&rsquo;t
+allow passing args to the virtual environment command that is called by it&rsquo;s
+pip module.</p>
+
+<p>Now this may sound kind of trivial, and working around it isn&rsquo;t incredibly
+difficult. But my point is that it took hours, instead of minutes to just get my
+dev environment setup for a new project. I recognize that the fault lies in
+several places, and probably least of all, with Python 3 itself. But it doesn&rsquo;t
+matter if it&rsquo;s Python&rsquo;s fault or not. If the ecosystem to work with it involves
+a bunch of things that don&rsquo;t &lsquo;just work&rsquo;, it will be difficult to get people to
+use it. I want to use Python 3. When will the ecosystem get to a place where it
+is just as easy for me to use as it still is for Python 2?</p>
+]]></content>
+  </entry>
   
 </feed>
