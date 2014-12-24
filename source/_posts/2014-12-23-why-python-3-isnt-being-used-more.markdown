@@ -6,9 +6,6 @@ comments: true
 categories:
 ---
 
-Why Python 3 Isn't Being Used More
-==================================
-
 Disclaimer: None of this is to bash on python itself, but moreso the
 ecosystem and problems that exist with it.
 
